@@ -6,30 +6,26 @@ Created on Mon Sep  3 21:26:27 2018
 """
 
 from tkinter import*
-import random
 import time
+import random
 
 root = Tk()
-root.geometry("1600x700+0+0")
+root.geometry("1800x700+0+0")
 root.title("Restaurant Management System")
 
-Tops = Frame(root,bg="white",width = 1600,height=50,relief=SUNKEN)
+Tops = Frame(root,bg="white",width = 1800,height=700,relief=SUNKEN)
 Tops.pack(side=TOP)
 
-f1 = Frame(root,width = 900,height=700,relief=SUNKEN)
+f1 = Frame(root,width = 990,height=700,relief=SUNKEN)
 f1.pack(side=LEFT)
 
-f2 = Frame(root ,width = 400,height=700,relief=SUNKEN)
+f2 = Frame(root ,width = 500,height=700,relief=SUNKEN)
 f2.pack(side=RIGHT)
-#------------------TIME--------------
 localtime=time.asctime(time.localtime(time.time()))
-#-----------------INFO TOP------------
-lblinfo = Label(Tops, font=( 'aria' ,30, 'bold' ),text="Restaurant Management System",fg="steel blue",bd=10,anchor='w')
+lblinfo = Label(Tops, font=( 'aria' ,40, 'bold' ),text="Restaurant Management System",fg="steel blue",bd=10,anchor='w')
 lblinfo.grid(row=0,column=0)
 lblinfo = Label(Tops, font=( 'aria' ,20, ),text=localtime,fg="steel blue",anchor=W)
 lblinfo.grid(row=1,column=0)
-
-#---------------Calculator------------------
 text_Input=StringVar()
 operator =""
 
@@ -65,20 +61,20 @@ def Ref():
     cochee= float(Cheese_burger.get())
     codr= float(Drinks.get())
 
-    costoffries = cof*25
-    costoflargefries = colfries*40
-    costofburger = cob*35
+    costoffries = cof*35
+    costoflargefries = colfries*50
+    costofburger = cob*55
     costoffilet = cofi*50
     costofcheeseburger = cochee*50
-    costofdrinks = codr*35
+    costofdrinks = codr*25
 
-    costofmeal = "Rs.",str('%.2f'% (costoffries +  costoflargefries + costofburger + costoffilet + costofcheeseburger + costofdrinks))
-    PayTax=((costoffries +  costoflargefries + costofburger + costoffilet +  costofcheeseburger + costofdrinks)*0.33)
+    costofmeal = "Rs.",str('%.3f'% (costoffries +  costoflargefries + costofburger + costoffilet + costofcheeseburger + costofdrinks))
+    PayTax=((costoffries +  costoflargefries + costofburger + costoffilet +  costofcheeseburger + costofdrinks)*0.56)
     Totalcost=(costoffries +  costoflargefries + costofburger + costoffilet  + costofcheeseburger + costofdrinks)
-    Ser_Charge=((costoffries +  costoflargefries + costofburger + costoffilet + costofcheeseburger + costofdrinks)/99)
+    Ser_Charge=((costoffries +  costoflargefries + costofburger + costoffilet + costofcheeseburger + costofdrinks)/89)
     Service="Rs.",str('%.2f'% Ser_Charge)
     OverAllCost="Rs.",str( PayTax + Totalcost + Ser_Charge)
-    PaidTax="Rs.",str('%.2f'% PayTax)
+    PaidTax="Rs.",str('%.3f'% PayTax)
 
     Service_Charge.set(Service)
     cost.set(costofmeal)
@@ -110,25 +106,18 @@ btn7.grid(row=2,column=0)
 
 btn8=Button(f2,padx=16,pady=16,bd=4, fg="black", font=('ariel', 20 ,'bold'),text="8",bg="powder blue", command=lambda: btnclick(8) )
 btn8.grid(row=2,column=1)
-
 btn9=Button(f2,padx=16,pady=16,bd=4, fg="black", font=('ariel', 20 ,'bold'),text="9",bg="powder blue", command=lambda: btnclick(9) )
 btn9.grid(row=2,column=2)
-
 Addition=Button(f2,padx=16,pady=16,bd=4, fg="black", font=('ariel', 20 ,'bold'),text="+",bg="powder blue", command=lambda: btnclick("+") )
 Addition.grid(row=2,column=3)
-#---------------------------------------------------------------------------------------------
 btn4=Button(f2,padx=16,pady=16,bd=4, fg="black", font=('ariel', 20 ,'bold'),text="4",bg="powder blue", command=lambda: btnclick(4) )
 btn4.grid(row=3,column=0)
-
 btn5=Button(f2,padx=16,pady=16,bd=4, fg="black", font=('ariel', 20 ,'bold'),text="5",bg="powder blue", command=lambda: btnclick(5) )
 btn5.grid(row=3,column=1)
-
 btn6=Button(f2,padx=16,pady=16,bd=4, fg="black", font=('ariel', 20 ,'bold'),text="6",bg="powder blue", command=lambda: btnclick(6) )
 btn6.grid(row=3,column=2)
-
 Substraction=Button(f2,padx=16,pady=16,bd=4, fg="black", font=('ariel', 20 ,'bold'),text="-",bg="powder blue", command=lambda: btnclick("-") )
 Substraction.grid(row=3,column=3)
-#-----------------------------------------------------------------------------------------------
 btn1=Button(f2,padx=16,pady=16,bd=4, fg="black", font=('ariel', 20 ,'bold'),text="1",bg="powder blue", command=lambda: btnclick(1) )
 btn1.grid(row=4,column=0)
 
@@ -140,7 +129,6 @@ btn3.grid(row=4,column=2)
 
 multiply=Button(f2,padx=16,pady=16,bd=4, fg="black", font=('ariel', 20 ,'bold'),text="*",bg="powder blue", command=lambda: btnclick("*") )
 multiply.grid(row=4,column=3)
-#------------------------------------------------------------------------------------------------
 btn0=Button(f2,padx=16,pady=16,bd=4, fg="black", font=('ariel', 20 ,'bold'),text="0",bg="powder blue", command=lambda: btnclick(0) )
 btn0.grid(row=5,column=0)
 
@@ -157,8 +145,6 @@ Division=Button(f2,padx=16,pady=16,bd=4, fg="black", font=('ariel', 20 ,'bold'),
 Division.grid(row=5,column=3)
 status = Label(f2,font=('aria', 15, 'bold'),width = 16, text="Calculator",bd=2,relief=SUNKEN)
 status.grid(row=7,columnspan=3)
-
-#---------------------------------------------------------------------------------------
 rand = StringVar()
 Fries = StringVar()
 Largefries = StringVar()
@@ -203,8 +189,6 @@ lblCheese_burger = Label(f1, font=( 'aria' ,16, 'bold' ),text="Cheese burger",fg
 lblCheese_burger.grid(row=5,column=0)
 txtCheese_burger = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Cheese_burger , bd=6,insertwidth=4,bg="powder blue" ,justify='right')
 txtCheese_burger.grid(row=5,column=1)
-
-#--------------------------------------------------------------------------------------
 lblDrinks = Label(f1, font=( 'aria' ,16, 'bold' ),text="Drinks",fg="steel blue",bd=10,anchor='w')
 lblDrinks.grid(row=0,column=2)
 txtDrinks = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Drinks , bd=6,insertwidth=4,bg="powder blue" ,justify='right')
@@ -234,8 +218,6 @@ lblTotal = Label(f1, font=( 'aria' ,16, 'bold' ),text="Total",fg="steel blue",bd
 lblTotal.grid(row=5,column=2)
 txtTotal = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Total , bd=6,insertwidth=4,bg="powder blue" ,justify='right')
 txtTotal.grid(row=5,column=3)
-
-#-----------------------------------------buttons------------------------------------------
 lblTotal = Label(f1,text="---------------------",fg="white")
 lblTotal.grid(row=6,columnspan=3)
 
@@ -250,7 +232,7 @@ btnexit.grid(row=7, column=3)
 
 def price():
     roo = Tk()
-    roo.geometry("600x220+0+0")
+    roo.geometry("800x320+0+0")
     roo.title("Price List")
     lblinfo = Label(roo, font=('aria', 15, 'bold'), text="ITEM", fg="black", bd=5)
     lblinfo.grid(row=0, column=0)
